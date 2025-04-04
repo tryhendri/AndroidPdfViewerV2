@@ -1,7 +1,5 @@
 @REM
 eREM Copyright 2014 Joan Zapata
-google_location_api: AIzaSyBfxs4P5Wmqx2QCgdtxl5-jYKqVm2KTpoc
-s
 @REM
 @REM This file is part of Android-pdfview.
 @REM

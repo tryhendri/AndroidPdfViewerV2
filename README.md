@@ -173,6 +173,38 @@ Configurator.onRender(new OnRenderListener() {
 ## One more thing
 If you have any suggestions on making this lib better, write me, create issue or write some code and send pull request.
 
+## Generate the JAR file and host it locally
+
+Since this library is no longer hosted on public repositories such as Gradle Plugin Portal, Maven Central, or JitPack, and due to the need to maintain legacy code and resolve issues quickly, I decided to generate the JAR file manually and host it locally instead of pulling it from a remote plugin portal.
+
+To build the JAR, I used the following Gradle commands
+
+``` sh
+./gradlew clean
+./gradlew :android-pdf-viewer:clean
+./gradlew :android-pdf-viewer:build
+./gradlew :android-pdf-viewer:generateJar
+
+```
+I then placed the generated JAR file inside the libs directory of the app source. Here's the relevant part of the build.gradle file:
+
+``` java
+
+android {
+    compileSdkVersion 34
+ 
+     // makeReleaseNotesSinceLastTag()
+ 
+     dependencies {
+          ...
+          //implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+          implementation files('libs/android-pdf-viewer-2.8.2.jar')
+     }
+ }
+```
+
+If you prefer not to build the project yourself, you can directly download the JAR file from [here](https://github.com/tryhendri/AndroidPdfViewerV2/blob/master/android-pdf-viewer/jar/android-pdf-viewer-2.8.2.jar)
+
 ## License
 
 Created with the help of android-pdfview by [Joan Zapata](http://joanzapata.com/)
